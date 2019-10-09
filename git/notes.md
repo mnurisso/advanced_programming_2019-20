@@ -104,10 +104,6 @@ To go back to the newest version (of a specific branch):
 git checkout master #master is the branch name
 ```
 
-## Branch
-
-**Branch** is a pointer to a commit. The branch always point to the last commit done on the specific branch.
-
 ## Recover file
 
 ```bash
@@ -182,3 +178,71 @@ does both the commands at the same time.
 ## Fork
 
 Fork a repository means that you're creating a repository under your username with the material of the original one. It takes a snapshot of the original repository but then is up to you to keep the repository updated with the original one.
+
+You can add a remote link to the local folder by:
+
+```bash
+git remote add myfork https://github.com/mnurisso/advanced_programming_2019-20.git
+```
+
+So in this way I can have more than one remote link to the local folder, one without writing permission to clone the updates from the original forked code and one with permission to upload and keep track of modifications that I do to the original code.
+
+## Push
+
+```bash
+git push myfork master #myfork is usually origin with only one remote
+```
+
+By using **http** it will require username and password.
+
+## Branch
+
+**Branch** is a pointer to a commit. The branch always point to the last commit done on the specific branch.
+
+To create a new branch:
+
+```bash
+git branch moon
+```
+
+To see the list of branches:
+
+```bash
+git branch
+
+* master
+  moon
+```
+
+After the creation of a branch I'm still not in the new branch, in order to do that I need to use the **checkout** command.
+
+```bash
+git branch newbranch startingbranch #e.g. jupiter master
+```
+
+The branch is created from the actual position or adding another branchname to the branch command.
+
+A general rule for branches is: new feature = new branch.
+
+## Merge
+
+```bash
+git checkout master #final branch
+git merge branch_name
+```
+
+Fast-forward if there is nothing else apart from pushing forward the master branch. If it's not fast-forward a commit message is necessary to explain why the merge is necessary.
+
+```bash
+git branch -d branch_name
+```
+
+Delete a branch, but it's only a pointer so it's not deleting the commitments.
+
+# More info
+
+```bash
+man git-commandname
+```
+
+to have all the infos about a specific git command.
