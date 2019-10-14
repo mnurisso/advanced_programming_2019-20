@@ -1,7 +1,8 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -g -std=c++11
 
-SRC = reverse.cc
+SRC = reverse.cc \
+	  prime.cc 	 \
 
 EXE = $(SRC:.cc=.x)
 
