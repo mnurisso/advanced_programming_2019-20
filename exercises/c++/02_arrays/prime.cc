@@ -17,11 +17,11 @@ int main(){
 	
 	arr[0] = 2; // 2 is the first prime number
 	
-	for(unsigned int i=3; i<=n; i++){
+	for(unsigned int i=3; i<=n; i++){/* analysis i number */
+		/* prime analysis*/
 		unsigned int j = 0;
 		
-		/* prime analysis*/
-		while(pstat == true || j<=pcount){
+		while(pstat == true && j<=pcount){/* loop over previous prime numbers */
 			remainder = i%arr[j];
 			
 			if(remainder == 0){/* not a prime number */
@@ -30,11 +30,10 @@ int main(){
 			
 			j++;
 		}
-		
 		if(pstat == true){/* prime number found */
 			pcount++;
 			arr[pcount] = i;
-		}
+		}else pstat = true;/* restet bool variable */
 	}
 	
 	/* Print array */
