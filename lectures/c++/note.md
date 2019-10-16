@@ -277,9 +277,7 @@ delete[] da;
 
 The portion of  memory should be deleted manually at the end of the scope. Another good motivation of using heap is that usally the stack is a very small part of the memory and so it's easy to incur in stack overflow.
 
-## Exercise 02
-
-### Valgrind
+## Valgrind
 
 Allow to check if your code has some part of the heap memory that it's not deallocated at the end of the job.
 
