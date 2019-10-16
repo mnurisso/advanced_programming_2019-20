@@ -35,6 +35,8 @@ int main() {
 
   double* da{new double[5]{}};
   delete[] da;  // dangling pointer
+  // set values pointed by da as free, but if I want to use again
+  // da I have to use the following command:
   da = nullptr;
 
   if (pi != nullptr)
@@ -71,7 +73,7 @@ int main() {
   fp("world");
 
   // fp = func3; // error: wrong signature
-  auto xx = func3;
+  auto xx = func3; // automatically define the correct signature
 
   xx("auto");
 

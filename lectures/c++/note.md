@@ -275,7 +275,9 @@ It allocates an array of this size without the need to know the length at compil
 delete[] da;
 ```
 
-The portion of  memory should be deleted manually at the end of the scope. Another good motivation of using heap is that usally the stack is a very small part of the memory and so it's easy to incur in stack overflow.
+The portion of  memory should be deleted manually at the end of the scope. Another good motivation of using heap is that usually the stack is a very small part of the memory and so it's easy to incur in stack overflow.
+
+This objects living in the heap have no name, they're simply a pointer to the portion of memory.
 
 ## Valgrind
 

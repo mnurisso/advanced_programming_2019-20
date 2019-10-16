@@ -5,7 +5,7 @@
 
 template <class T>
 auto init(const std::size_t l) {
-  return new T[l]{};
+  return new T[l]{}; // every component initialized to 0
 }
 
 #else
@@ -29,9 +29,9 @@ int main() {
   for (auto i = 0; i < 7; ++i)
     std::cout << i << std::endl;
 
-  auto pb = &b;  // guess what.. How can I know?
+  auto pb = &b;  // is a pointer to a boolean
 
-  auto ps = init<double>(11);
+  auto ps = init<double>(11); // pointer to double
   delete[] ps;
   return 0;
 }
