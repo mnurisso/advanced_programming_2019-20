@@ -239,10 +239,43 @@ git branch -d branch_name
 
 Delete a branch, but it's only a pointer so it's not deleting the commitments.
 
-# More info
+## Tag
+
+A **lightweight tag** is simply a pointer to a specific commit. An **annotated tag** instead has a comment and can be used to create a pointer to a specific version of your code with the changelog as comment.
 
 ```bash
-man git-commandname
+git tag -a tag_name -m 'tag comment (changelog)'
 ```
 
-to have all the infos about a specific git command.
+`-a` specify the request of an annotated tag, while `-m` specify the comment.
+
+```bash
+git show tag_name
+```
+
+shows the comment related to the specific tag.
+
+Instead a lightweight tag can be created by typing:
+
+```bash
+git tag tag_name
+```
+
+A tag can be added also to commit already created using its checksum:
+
+```bash
+git tag -a tag_name 9fceb02 #checksum or part of it
+```
+
+If you want to push a tag on the repository online this has to be done manually:
+
+```bash
+git push origin tag_name
+```
+
+or to update at the same time every tags:
+
+```bash
+git push origin --tags
+```
+
