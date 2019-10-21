@@ -2,7 +2,8 @@ CXX = c++
 CXXFLAGS = -Wall -Wextra -g -std=c++11
 
 SRC = transpose.cc \
-      arg_line.cc
+      arg_line.cc \
+	  mean_median.cc
 
 EXE = $(SRC:.cc=.x)
 
