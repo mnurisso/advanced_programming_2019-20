@@ -1,7 +1,8 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -g -std=c++11
 
-SRC = transpose.cc
+SRC = transpose.cc \
+      arg_line.cc
 
 EXE = $(SRC:.cc=.x)
 
