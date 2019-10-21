@@ -1,67 +1,96 @@
+#include <algorithm>
+#include <fstream>
 #include <iomanip>
 #include <iostream>
-#include <array>
 #include <utility>
+#include <vector>
+/*********************************************************/
 
-template <class T>
-void PrintMatrix (T& matr, std::size_t row, std::size_t col){
-	for(std::size_t i=0; i<row; i++){
-		for(std::size_t j=0; j<col; j++){
-			std::cout << std::setw(2) << matr[i * col + j] << " ";
-		}
-	std::cout << std::endl;
-	}
-}
+template <typename T>
+T MeanVector(const std::vector<T>& v);
 
-template <class T>
-void TransposeMatrix (T& matr, std::size_t row, std::size_t col){
-	std::array<double,100> arr_c{0};
-	
-	/* copy the original array */
-	for(std::size_t i=0; i<row; i++){
-		for(std::size_t j=0; j<col; j++){
-			arr_c[i * col + j] = matr[i * col + j];
-		}
-	}
-	
-	/* transpose the matrix */
-	for(std::size_t i=0; i<col; i++){
-		for(std::size_t j=0; j<row; j++){
-			matr[i * row + j] = arr_c[j * col + i];
-		}
-	}
-}
+template <typename T>
+T MedianVector(std::vector<T>& v);
+
+template <typename T>
+void PrintVector(const std::vector<T>& v, const std::string& s);
+
+/*********************************************************/
 int main(){
-	std::size_t row, col;
+	std::vector<double> v;
+	double mean   = 0.0;
+	double median = 0.0;
 	
-	/* Asking for matrix dimensions */
-	std::cout << "How many rows?" << std::endl;
-	std::cin >> row;
+	/* Open file */
+	std::ifstream input("temperatures.txt"); /* Open the file */
+	std::string line;
 	
-	std::cout << "How many columns?" << std::endl;
-	std::cin >> col;
-	
-	if(col*row > 100){
-		std::cout << "ERROR: Dimension not supported" << std::endl;
-		return 1;
+	/* Check if the file is correctly open */
+	if (!input.is_open()) {
+		std::cerr << "ERROR: There was a problem opening the input file!" << std::endl;
+		return 1; /* exit */
 	}
 	
-	/* Initialize the matrix */
-	std::array<double,100> arr{0};
-	unsigned int i = 0;
-	for (auto& x : arr){
-		x += i;
-		i++;
+	/* Store file in a vector */
+	double num = 0.0;
+	while(input >> num){
+		v.push_back(num);
 	}
 	
-	/* Print initial matrix */
-	std::cout << "The original matrix is:" << std::endl;
-	PrintMatrix(arr,row,col);
+	/* Print vector*/
+	PrintVector(v, "Data stored");
 	
-	/* Transpose matrix */
-	TransposeMatrix(arr,row,col);
-	std::cout << "The transpose matrix is:" << std::endl;
-	PrintMatrix(arr,col,row);
+	/* Mean Value */
+	mean = MeanVector(v);
+	std::cout << "The mean value is: " << mean << std::endl;
+	
+	/* Median value */
+	median = MedianVector(v);
+	std::cout << "The median value is: " << median << std::endl;
 	
 	return 0;
+}
+/*********************************************************/
+
+/*********************************************************/
+template <typename T>
+T MeanVector(const std::vector<T>& v){
+	T sum = 0.0;
+	T mean;
+	
+	for(auto x : v){
+		sum += x;
+	}
+	
+	mean = sum/(double)v.size();
+	
+	return mean;
+}
+
+/*********************************************************/
+template <typename T>
+T MedianVector(std::vector<T>& v){
+	std::size_t size = v.size();
+	
+	/*Order vector*/
+	std::sort(v.begin(), v.end());
+	
+	/* Median */
+	if(size%2 == 0){
+		return (v[size/2 - 1] + v[size/2])/2.0;
+	}else{
+		return v[size/2];
+	}
+}
+
+/*********************************************************/
+template <typename T>
+void PrintVector(const std::vector<T>& v, const std::string& s) {
+	std::cout << s << ": ";
+	
+	for (const auto& x : v){
+		std::cout << x << " ";
+	}
+	
+	std::cout << std::endl;
 }
