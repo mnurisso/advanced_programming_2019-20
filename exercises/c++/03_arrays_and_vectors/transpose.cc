@@ -17,17 +17,19 @@ template <class T>
 void TransposeMatrix (T& matr, std::size_t row, std::size_t col){
 	std::array<double,100> arr_c{0};
 	
+	/* copy the original array */
 	for(std::size_t i=0; i<row; i++){
 		for(std::size_t j=0; j<col; j++){
 			arr_c[i * col + j] = matr[i * col + j];
 		}
 	}
 	
-	for(std::size_t i=0; i<row; i++){
-		for(std::size_t j=0; j<col; j++){
-			matr[i * col + j] = arr_c[j * col + i];
+	/* transpose the matrix */
+	for(std::size_t i=0; i<col; i++){
+		for(std::size_t j=0; j<row; j++){
+			matr[i * row + j] = arr_c[j * col + i];
 		}
-	}/* pensa due secondi */
+	}
 }
 int main(){
 	std::size_t row, col;
