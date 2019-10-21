@@ -2,7 +2,11 @@
 
 ## Matrix transpose
 
+<<<<<<< HEAD
 - Write a function that computes the transpose of a matrix. The matrix is represented by a simple `std::array<double,N>` where N is the total size of the matrix (i.e., number of rows times number of columns). The original array must be modified inside the a function `transpose`. 
+=======
+- Write a function that computes the transpose of a matrix. The matrix is represented by a simple `std::array<double,N>` where N is the total size of the matrix (i.e., number of rows times number of columns). The original array must be modified inside the function `transpose`. 
+>>>>>>> 11d538fb70b326184aa50d114bd308e1b5104763
 
 *Hints*: 
 
@@ -32,7 +36,11 @@ std::size_t rows;
 
 ## Mean and Median
 
+<<<<<<< HEAD
 - Store the numbers contained in file `temperatures.txt` into an `std::vector<double>` and compute:
+=======
+- Store the numbers contained in file `temperatures.txt` into a `std::vector<double>` and compute:
+>>>>>>> 11d538fb70b326184aa50d114bd308e1b5104763
   - the mean
   - the median
 
