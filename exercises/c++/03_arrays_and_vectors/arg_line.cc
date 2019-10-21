@@ -1,6 +1,7 @@
+#include <array>
 #include <iomanip>
 #include <iostream>
-#include <array>
+#include <sstream>
 #include <utility>
 
 template <class T>
@@ -31,19 +32,18 @@ void TransposeMatrix (T& matr, std::size_t row, std::size_t col){
 		}
 	}
 }
-int main(){
+int main(int argc, char* argv[]){
 	std::size_t row, col;
-	//std::size_t n;					//total array dimension
 	
-	/* Asking for matrix dimensions */
-	std::cout << "How many rows?" << std::endl;
-	std::cin >> row;
-	
-	std::cout << "How many columns?" << std::endl;
-	std::cin >> col;
-	
+	/* rows and columns from terminal */
+	std::istringstream is1{argv[1]};
+	is1 >> row;
+
+	std::istringstream is2{argv[2]};
+	is2 >> col;
+
 	if(col*row > 100){
-		std::cout << "Dimension not supported";
+		std::cout << "Dimension not supported" << std::endl;
 		return 1;
 	}
 	

@@ -111,6 +111,8 @@ Allow to run the executable with arguments in the command line
 
 The second one is an array of char, the first one in the example is an argument counter.
 
+They're always both needed when you want to use command line arguments.
+
 ## Matrices
 
 A matrix is stored in a long array.
