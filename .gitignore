@@ -1,2 +1,5 @@
 # Ignore compiled files 
 *.x
+
+# Ignore temporary files
+*.swp
