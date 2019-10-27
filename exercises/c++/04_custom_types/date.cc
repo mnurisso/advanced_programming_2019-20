@@ -20,7 +20,7 @@ class Date{
 };
 
 std::ostream& operator<<(std::ostream& os, const Date::Month& month);
-//std::ostream& operator<<(std::ostream& os, const Date& d);
+std::ostream& operator<<(std::ostream& os, Date& d);
 
 /* ********************************************************************* */
 int main() {
@@ -48,6 +48,9 @@ int main() {
   birth.PrintDay();
   birth.PrintMonth();
   birth.PrintYear();
+  
+  std::cout << "Try << substitution for Date class:" << std::endl;
+  std::cout << birth << std::endl;
   
   return 0;
 }
@@ -198,10 +201,10 @@ std::ostream& operator<<(std::ostream& os, const Date::Month& month){
     return os;
 }
 
-///* ********************************************************************* */
-//std::ostream& operator<<(std::ostream& os, const Date& d){
-//  d.PrintDay();
-//  //d.PrintMonth();
-//  //d.PrintYear();
-//  return os;
-//}
+/* ********************************************************************* */
+std::ostream& operator<<(std::ostream& os, Date& d){
+  d.PrintDay();
+  d.PrintMonth();
+  d.PrintYear();
+  return os;
+}

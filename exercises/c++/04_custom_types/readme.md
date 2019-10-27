@@ -67,6 +67,7 @@ Implement the following external helper functions (i.e., they are not part of th
 - `bool operator==(const Date& lhs, const Date& rhs);`
 - `bool operator!=(const Date& lhs, const Date& rhs);`
 - `std::ostream& operator<<(std::ostream& os, const Date& d);`
+  *I'm not able to implement it with the const requirement*
 - **optional** `bool is_leap(const int y);`
 
 *Hints*:
@@ -78,7 +79,9 @@ Implement the following external helper functions (i.e., they are not part of th
 
 ## C++14
 
-Modify the class `Vector<typename T>` presented during the lecture exploiting all the of C++14 features you know. Can you see any benefit?
+Modify the class `Vector<typename T>` presented during the lecture exploiting all the of C++14 features you know. Can you see any benefit? 
+
+*I think you can use auto as returned value to remain the more generic possible.*
 
 *Hints*:
 
