@@ -12,9 +12,8 @@ int main() {
   
   Date birth{day, month, year};
   
-  birth.PrintDay();
-  birth.PrintMonth();
-  birth.PrintYear();
+  std::cout << "My birthday is:" << std::endl;
+  std::cout << birth << std::endl;
   
   unsigned int n = 3;
   
@@ -23,12 +22,6 @@ int main() {
   birth.AddDays(n);
   
   std::cout << "The new day is:" << std::endl;
-  
-  birth.PrintDay();
-  birth.PrintMonth();
-  birth.PrintYear();
-  
-  std::cout << "Try << substitution for Date class:" << std::endl;
   std::cout << birth << std::endl;
   
   return 0;

@@ -14,6 +14,8 @@
  * Month()
  * Year()
  * ******************************************************************** */
+//enum class Month {jan, feb, mar, apr, may, jun, jul, aug,
+//                      sept, oct, nov, dec};
 class Date{
   public:
     enum class Month {jan, feb, mar, apr, may, jun, jul, aug,
@@ -26,9 +28,9 @@ class Date{
   
   public:
     void AddDays(const unsigned int n);
-    void Day();
-    void Month();
-    void Year();
+    auto ReturnDay();
+    auto ReturnMonth();
+    auto ReturnYear();
     Date(unsigned int day, Month month, unsigned int year);
 };
 
@@ -39,17 +41,17 @@ std::ostream& operator<<(std::ostream& os, const Date::Month& m);
 std::ostream& operator<<(std::ostream& os, Date& d);
 
 /* ********************************************************************* */
-void Date::Day(){
+auto Date::ReturnDay(){
   return d;
 }
 
 /* ********************************************************************* */
-void Date::Month(){
+auto Date::ReturnMonth(){
   return m;
 }
 
 /* ********************************************************************* */
-void Date::Year(){
+auto Date::ReturnYear(){
   return y;
 }
 
@@ -100,7 +102,7 @@ void Date::AddDay(){
     case Month::may:{
       if(d==31){
         m = Month::jun;
-        _d = 1;
+        d = 1;
       }else{++d;}
       break;
     }
@@ -136,7 +138,7 @@ void Date::AddDay(){
       if(d==31){
         m = Month::nov;
         d = 1;
-      }else{++_day;}
+      }else{++d;}
       break;
     }
     case Month::nov:{
@@ -186,7 +188,8 @@ std::ostream& operator<<(std::ostream& os, const Date::Month& month){
 
 /* ********************************************************************* */
 std::ostream& operator<<(std::ostream& os, Date& d){
-	os << "day: " << d.Day() << "month: " << d.Month() << "year: " << d.Year() << std::endl;
+	os << "Day: " << d.ReturnDay() << " Month: " << d.ReturnMonth()
+     << " Year: " << d.ReturnYear() << std::endl;
   
   return os;
 }
