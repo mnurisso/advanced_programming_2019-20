@@ -1,7 +1,8 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -g -std=c++11
 
-SRC = date.cc
+SRC = date.cc \
+      date.h
 
 EXE = $(SRC:.cc=.x)
 
@@ -10,7 +11,7 @@ EXE = $(SRC:.cc=.x)
 SUFFIXES =
 
 # just consider our own suffixes
-.SUFFIXES: .cc .x
+.SUFFIXES: .cc .x .h
 
 all: $(EXE)
 
