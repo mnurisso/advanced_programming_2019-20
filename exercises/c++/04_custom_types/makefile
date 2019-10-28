@@ -1,5 +1,6 @@
 EXECUTABLE = date.x
-OBJECTS    = date.cc
+OBJECTS    = main_date.cc \
+             date.h
 
 CC            	= g++
 CFLAGS		= -Wall -Wextra -g -std=c++11
