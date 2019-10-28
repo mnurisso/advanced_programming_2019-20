@@ -23,6 +23,23 @@ int main() {
   
   std::cout << "The new day is:" << std::endl;
   std::cout << birth << std::endl;
+ 
+  Date true_birth{day,month,year};
+  
+  std::cout << "The true day is:" << std::endl;
+  std::cout << true_birth << std::endl;
+  
+  if(birth==true_birth){
+    std::cout << "The two dates are equal" << std::endl;
+  }else{
+    std::cout << "The two dates are different" << std::endl;
+  }
+  
+  if(birth!=true_birth){
+    std::cout << "The two dates are different" << std::endl;
+  }else{
+    std::cout << "The two dates are equal" << std::endl;
+  }
   
   return 0;
 }

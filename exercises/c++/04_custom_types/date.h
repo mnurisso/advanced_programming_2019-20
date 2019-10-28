@@ -14,8 +14,6 @@
  * Month()
  * Year()
  * ******************************************************************** */
-//enum class Month {jan, feb, mar, apr, may, jun, jul, aug,
-//                      sept, oct, nov, dec};
 class Date{
   public:
     enum class Month {jan, feb, mar, apr, may, jun, jul, aug,
@@ -40,34 +38,38 @@ class Date{
 std::ostream& operator<<(std::ostream& os, const Date::Month& m);
 std::ostream& operator<<(std::ostream& os, Date& d);
 
-/* ********************************************************************* */
+/* ******************************************************************** *
+ * Functions to access private data of Date class
+ * ******************************************************************** */
 auto Date::ReturnDay(){
   return d;
 }
-
 /* ********************************************************************* */
 auto Date::ReturnMonth(){
   return m;
 }
-
 /* ********************************************************************* */
 auto Date::ReturnYear(){
   return y;
 }
 
-/* ********************************************************************* */
+/* ******************************************************************** *
+ * Date class constructor
+ * ******************************************************************** */
 Date::Date(unsigned int day, Month month, unsigned int year)
   : d{day},
     m{month},
     y{year}
 {
-  std::cout << "Custom constructor" << std::endl;
+  std::cout << "Custom constructor" << std::endl << std::endl;
 }
 
-/* ********************************************************************* */
-//  28 feb
-//  30 apr jun sept nov
-//  31 jan mar may jul aug oct dec
+/* ********************************************************************* *
+ * Single day update
+ *
+ *  28 feb
+ *  30 apr jun sept nov
+ *  31 jan mar may jul aug oct dec
 /* ********************************************************************* */
 void Date::AddDay(){
   switch(m){
@@ -160,6 +162,8 @@ void Date::AddDay(){
 
 }
 
+/* ********************************************************************* *
+ * Multiple days update
 /* ********************************************************************* */
 void Date::AddDays(const unsigned int n){
   for(unsigned int i=0; i<n; i++){
@@ -167,6 +171,8 @@ void Date::AddDays(const unsigned int n){
   }
 }
 
+/* ********************************************************************* *
+ * ostream << overload for the Month enum class
 /* ********************************************************************* */
 std::ostream& operator<<(std::ostream& os, const Date::Month& month){
     switch(month) {
@@ -186,10 +192,47 @@ std::ostream& operator<<(std::ostream& os, const Date::Month& month){
     return os;
 }
 
+/* ********************************************************************* *
+ * ostream << overload for the Date class
 /* ********************************************************************* */
 std::ostream& operator<<(std::ostream& os, Date& d){
 	os << "Day: " << d.ReturnDay() << " Month: " << d.ReturnMonth()
      << " Year: " << d.ReturnYear() << std::endl;
   
   return os;
+}
+
+/* ********************************************************************* *
+ * operator== overload for the Date class
+/* ********************************************************************* */
+bool operator==(Date& lhs, Date& rhs){
+  bool op_stat = true;
+  
+  /* Check if the date are different*/
+  if(lhs.ReturnDay()!=rhs.ReturnDay()){
+    op_stat = false;
+    return op_stat;
+  }
+  if(lhs.ReturnMonth()!=rhs.ReturnMonth()){
+    op_stat = false;
+    return op_stat;
+  }
+  if(lhs.ReturnYear()!=rhs.ReturnYear()){
+    op_stat = false;
+    return op_stat;
+  }
+  
+  /* The date are equal */
+  return op_stat;
+}
+
+/* ********************************************************************* *
+ * operator!= overload for the Date class
+/* ********************************************************************* */
+bool operator!=(Date& lhs, Date& rhs){
+  if(lhs==rhs){
+    return false;
+  }else{
+    return true;
+  }
 }
