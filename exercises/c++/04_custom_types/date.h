@@ -19,45 +19,45 @@ class Date{
     enum class Month {jan, feb, mar, apr, may, jun, jul, aug,
                       sept, oct, nov, dec};
   private:
-    unsigned int _day;
-    Month _month;
-    unsigned int _year;
+    unsigned int d;
+    Month m;
+    unsigned int y;
     void AddDay();
   
   public:
     void AddDays(const unsigned int n);
-    void PrintDay();
-    void PrintMonth();
-    void PrintYear();
+    void Day();
+    void Month();
+    void Year();
     Date(unsigned int day, Month month, unsigned int year);
 };
 
 /* ******************************************************************** *
  * Function overload for  <<
  * ******************************************************************** */
-std::ostream& operator<<(std::ostream& os, const Date::Month& month);
+std::ostream& operator<<(std::ostream& os, const Date::Month& m);
 std::ostream& operator<<(std::ostream& os, Date& d);
 
 /* ********************************************************************* */
-void Date::PrintDay(){
-  std::cout << "The day is: " << Date::_day << std::endl;
+void Date::Day(){
+  return d;
 }
 
 /* ********************************************************************* */
-void Date::PrintMonth(){
-  std::cout << "The month is: " << Date::_month << std::endl;
+void Date::Month(){
+  return m;
 }
 
 /* ********************************************************************* */
-void Date::PrintYear(){
-  std::cout << "The year is: " << Date::_year << std::endl;
+void Date::Year(){
+  return y;
 }
 
 /* ********************************************************************* */
 Date::Date(unsigned int day, Month month, unsigned int year)
-  : _day{day},
-    _month{month},
-    _year{year}
+  : d{day},
+    m{month},
+    y{year}
 {
   std::cout << "Custom constructor" << std::endl;
 }
@@ -68,90 +68,90 @@ Date::Date(unsigned int day, Month month, unsigned int year)
 //  31 jan mar may jul aug oct dec
 /* ********************************************************************* */
 void Date::AddDay(){
-  switch(_month){
+  switch(m){
     case Month::jan:{
-      if(_day==31){
-        _month = Month::feb;
-        _day = 1;
-      }else{++_day;}
+      if(d==31){
+        m = Month::feb;
+        d = 1;
+      }else{++d;}
       break;
     }
     case Month::feb:{
-      if(_day==28){
-        _month = Month::mar;
-        _day = 1;
-      }else{++_day;}
+      if(d==28){
+        m = Month::mar;
+        d = 1;
+      }else{++d;}
       break;
     }
     case Month::mar:{
-      if(_day==31){
-        _month = Month::apr;
-        _day = 1;
-      }else{++_day;}
+      if(d==31){
+        m = Month::apr;
+        d = 1;
+      }else{++d;}
       break;
     }
     case Month::apr:{
-      if(_day==30){
-        _month = Month::may;
-        _day = 1;
-      }else{++_day;}
+      if(d==30){
+        m = Month::may;
+        d = 1;
+      }else{++d;}
       break;
     }
     case Month::may:{
-      if(_day==31){
-        _month = Month::jun;
-        _day = 1;
-      }else{++_day;}
+      if(d==31){
+        m = Month::jun;
+        _d = 1;
+      }else{++d;}
       break;
     }
     case Month::jun:{
-      if(_day==30){
-        _month = Month::jul;
-        _day = 1;
-      }else{++_day;}
+      if(d==30){
+        m = Month::jul;
+        d = 1;
+      }else{++d;}
       break;
     }
     case Month::jul:{
-      if(_day==31){
-        _month = Month::aug;
-        _day = 1;
-      }else{++_day;}
+      if(d==31){
+        m = Month::aug;
+        d = 1;
+      }else{++d;}
       break;
     }
     case Month::aug:{
-      if(_day==31){
-        _month = Month::sept;
-        _day = 1;
-      }else{++_day;}
+      if(d==31){
+        m = Month::sept;
+        d = 1;
+      }else{++d;}
       break;
     }
     case Month::sept:{
-      if(_day==30){
-        _month = Month::oct;
-        _day = 1;
-      }else{++_day;}
+      if(d==30){
+        m = Month::oct;
+        d = 1;
+      }else{++d;}
       break;
     }
     case Month::oct:{
-      if(_day==31){
-        _month = Month::nov;
-        _day = 1;
+      if(d==31){
+        m = Month::nov;
+        d = 1;
       }else{++_day;}
       break;
     }
     case Month::nov:{
-      if(_day==30){
-        _month = Month::dec;
-        _day = 1;
-      }else{++_day;}
+      if(d==30){
+        m = Month::dec;
+        d = 1;
+      }else{++d;}
       break;
     }
     case Month::dec:{
-      if(_day==31){
-        _month = Month::jan;
-        _day = 1;
-        ++_year;
-      }else{++_day;}
+      if(d==31){
+        m = Month::jan;
+        d = 1;
+        ++y;
+      }else{++d;}
       break;
     }
   }
@@ -168,26 +168,25 @@ void Date::AddDays(const unsigned int n){
 /* ********************************************************************* */
 std::ostream& operator<<(std::ostream& os, const Date::Month& month){
     switch(month) {
-    case Date::Month::jan: os << "Jan"; break;
-    case Date::Month::feb: os << "Feb"; break;
-    case Date::Month::mar: os << "Mar"; break;
-    case Date::Month::apr: os << "Apr"; break;
-    case Date::Month::may: os << "May"; break;
-    case Date::Month::jun: os << "Jun"; break;
-    case Date::Month::jul: os << "Jul"; break;
-    case Date::Month::aug: os << "Aug"; break;
+    case Date::Month::jan:  os << "Jan";  break;
+    case Date::Month::feb:  os << "Feb";  break;
+    case Date::Month::mar:  os << "Mar";  break;
+    case Date::Month::apr:  os << "Apr";  break;
+    case Date::Month::may:  os << "May";  break;
+    case Date::Month::jun:  os << "Jun";  break;
+    case Date::Month::jul:  os << "Jul";  break;
+    case Date::Month::aug:  os << "Aug";  break;
     case Date::Month::sept: os << "Sept"; break;
-    case Date::Month::oct: os << "Oct"; break;
-    case Date::Month::nov: os << "Nov"; break;
-    case Date::Month::dec: os << "Dec"; break;
+    case Date::Month::oct:  os << "Oct";  break;
+    case Date::Month::nov:  os << "Nov";  break;
+    case Date::Month::dec:  os << "Dec";  break;
     }
     return os;
 }
 
 /* ********************************************************************* */
 std::ostream& operator<<(std::ostream& os, Date& d){
-  d.PrintDay();
-  d.PrintMonth();
-  d.PrintYear();
+	os << "day: " << d.Day() << "month: " << d.Month() << "year: " << d.Year() << std::endl;
+  
   return os;
 }
