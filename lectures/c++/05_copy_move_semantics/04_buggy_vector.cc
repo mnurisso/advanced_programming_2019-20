@@ -24,6 +24,13 @@ class Vector {
   T* end() { return elem + size(); }
 };
 
+void Print (const Vector<int>& v){
+ for(auto x : v){
+  std::cout << x << " ";
+ }
+ std::cout << std::endl;
+}
+
 int main() {
   Vector<int> v1{3};
   v1[0] = 1;
@@ -36,6 +43,8 @@ int main() {
   std::cout << std::endl;
 
   Vector<int> v2{v1};  // default copy constructor
+  // the default copy ctor copy by value, having the same adress in memory
+  // this create also a free double in the memory after the destructor call
 
   std::cout << "v2 after default copy ctor: ";
   for (const auto x : v2)
@@ -55,6 +64,9 @@ int main() {
   for (const auto x : v1)
     std::cout << x << " ";
   std::cout << std::endl;
+  
+  std::cout << "Print function defined outside class: ";
+  Print(v1);
 
   return 0;
 }
