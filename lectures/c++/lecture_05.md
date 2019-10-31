@@ -70,3 +70,11 @@ This for example doesn't allow to define a default copy ctor because you're call
 
 Useful when you need to move variables because it's more efficient wrt to copy the value in a new variable.
 
+## Arg value reference
+
+```c++
+void insert(value_type&& v, const Insertion_method m);
+v.insert(std::vector<int>(7),push_back);
+```
+
+The `&&` is used when you're trying to call a function with an argument that is supposed to be destroyed at the end of the statement (called **r-value**, instead is called **l-value**). You should use the move semantic to use efficiently this method.

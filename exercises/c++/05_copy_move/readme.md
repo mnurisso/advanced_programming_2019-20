@@ -65,7 +65,7 @@ std::ostream& operator<<(std::ostream& os, const List<T>& l);
    - `T* get() const` Returns a pointer to the managed object or `nullptr` if no object is owned.
    - `T* release()` Releases the ownership of the managed object if any. `get()` returns `nullptr` after the call.
    - `void reset(T* ptr)` Delete `current_ptr` (if any) and set `current_ptr = ptr`.
-   - To check if a `std::unique_ptr<T> p` is different from `nullptr` you can simply use `if(p)` (there is no need to write `if (p.get())`).
+   - To check if a `std::unique_ptr<T> p` is different from `nullptr` you can simply use `if(p)` (there is no need to write `if (p.get())`but it's not wrong).
 
 -  For a class `Foo`
 
@@ -90,3 +90,4 @@ The private member `head` points to the first element of the list.
 
 ![linked_list.png](./.aux/list2.png)
 
+Is a `struct` that has two variables, the value stored and a pointer to the next element. The last element is a `NULL` pointer and it's convenient to have a pointer also to the first element.

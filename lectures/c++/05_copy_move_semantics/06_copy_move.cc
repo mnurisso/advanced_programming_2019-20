@@ -84,6 +84,8 @@ Vector<T>::Vector(const Vector& v) : _size{v._size}, elem{new T[_size]} {
 // copy assignment
 template <typename T>
 Vector<T>& Vector<T>::operator=(const Vector& v) {
+ 
+  if(&v == this) return *this; // protect from self-assignment segmentation fault
   std::cout << "copy assignment (\n";
 
   // we could decide that this operation is allowed if and only if
