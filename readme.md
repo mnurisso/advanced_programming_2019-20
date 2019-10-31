@@ -40,7 +40,8 @@ Syllabus:
 - `N > 0`
   - open a terminal
   - `cd` to the folder `advanced-programming_2019-20`
-  - `git pull --rebase origin master`
+  - `git fetch origin master`
+  - `git merge`
 - if(conflict)
   - ask
 
