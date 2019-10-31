@@ -53,7 +53,7 @@ class Vector {
     std::cout << "move assignment\n";
     _size = std::move(v._size);
     elem = std::move(v.elem);
-    return *this;
+    return *this; //this is a pointer to yourself
   }
 
   // Vector& operator=(Vector&& v) = default; // ok
