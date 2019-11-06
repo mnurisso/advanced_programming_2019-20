@@ -40,17 +40,17 @@ double square_root(const double d) {
       << "In our library the argument must be positive and less or equal than "
          "50.\n";
 
-  // AP_ERROR(d >= 0 && d <= 50) << "In our library the argument must be
-  // positive "
-  //                                "and less or equal than 50.\n";
-
-  // AP_ERROR_GE(d, 0) << "Cannot handle negative numbers.\n";
-
-  // AP_ERROR_LE(d, 50) << "According to the implemented algorithm, the argument
-  // "
-  //                       "must be less than 50.\n";
-
-  // AP_ERROR_IN_RANGE(d,0,50);
+  //AP_ERROR(d >= 0 && d <= 50) << "In our library the argument must be
+  //positive "
+  //                               "and less or equal than 50.\n";
+  //
+  //AP_ERROR_GE(d, 0) << "Cannot handle negative numbers.\n";
+  //
+  //AP_ERROR_LE(d, 50) << "According to the implemented algorithm, the argument
+  //"
+  //                      "must be less than 50.\n";
+  //
+  //AP_ERROR_IN_RANGE(d,0,50);
 
   return sqrt(d);
 }

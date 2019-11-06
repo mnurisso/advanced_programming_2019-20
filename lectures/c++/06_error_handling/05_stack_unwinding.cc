@@ -36,9 +36,11 @@ class ManyResources {
   ManyResources() : ptr{nullptr}, v{3} {
     std::cout << "Manyresources" << std::endl;
     try {
+      /* new if there is no space avaible for the requested memory
+         trows an exception, instead in C malloc return a NULL pointer */
       ptr = new double[5];  // new(std::nothrow) double[5] could be better
       AP_ERROR(false) << "Error in ManyResources ctor." << std::endl;
-    } catch (...) {
+    } catch (...) {/* to avoid pointer memory leak */
       delete[] ptr;  // <----
       throw;
     }

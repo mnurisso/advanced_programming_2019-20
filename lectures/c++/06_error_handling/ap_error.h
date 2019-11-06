@@ -186,7 +186,7 @@ namespace internal {
 
 #ifndef NDEBUG
 #  define _AP_ASSERT_(cond, exception_type) AP_ERROR(cond, exception_type)
-#else
+#else /* exclude the debug in assert style by the DNDEBUG flag */
 #  define _AP_ASSERT_(cond, exception_type)                                    \
     internal::NullStream {}
 #endif
