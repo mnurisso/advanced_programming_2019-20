@@ -135,11 +135,11 @@ class List {
   // append the newly created node at the end of the list
   /*********************************************************/
 	 void push_back(const value_type& v){
-    node* last_node;
-    last_node = head.get();
+    node* last_node = head.get();
+    //last_node = head.get();
     
     std::cout << "Entering push_back:\n";
-    if(last_node){
+    while(last_node){
       last_node = last_node->next.get();
     }
     
