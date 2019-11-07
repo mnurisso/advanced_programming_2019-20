@@ -43,7 +43,6 @@ class List{
 		 **********************************************************************/
 		List(List&&) noexcept = default; /* fine because we're using a unique_ptr */	
 		List& operator=(List&&) noexcept = default;
-		
 		/**********************************************************************
 		 * Copy semantic (DON'T use noexcept)
 		 **********************************************************************/
@@ -88,7 +87,7 @@ void List<T>::insert(const T& v, const method m){
 			AP_ERROR(false) << "Unknown insertion method";
 	};
 }
-///* Rvalue - can we avoid to repeate the code? */
+///* Rvalue - can we avoid to repeate the code? Yes but not easy */
 //template <class T>
 //void List<T>::insert(T&& v, const method m){
 //	/* Check if it's the first node */
@@ -138,8 +137,6 @@ void List<T>::push_back(const T& v){
  * Push_front private function
  ************************************************************************/
 template <class T>
-//template <class OT>
-//void List<T>::push_front(OT& v){
 void List<T>::push_front(const T& v){/* old function */
 	//auto h = head.release(); /* release the ownership of head, retunr a raw pointer */
 	//auto new_node = new node{v,h};
