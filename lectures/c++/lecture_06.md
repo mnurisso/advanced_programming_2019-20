@@ -130,3 +130,40 @@ A macro should be a single line so that if you want or need to go to a new line 
                                      + q[0][j+1][i] + q[0][j+1][i+1]))
 ```
 
+# Linked list (exercises 06)
+
+- When you're inside a templated class nested classes are not automatically templated themselves if not explicitly written with an another template.
+
+- Don't use an header file `.h` **and** an external `.c` file for the class functions if you're working with a templated class unless you've a really big project, prefer always if it's possible to use a single `.h` header file.
+
+- To loop over the list and reach the end of it you need to use a raw ptr and find when it's  `nullptr`.
+
+- If you don't define functions for the R-values the class will try to use the L-value one, but if the conversion it's not possible you will obtain an error.
+
+  ```c++
+  std::forward<T>(d)
+  ```
+
+  can be used to pass the value as R or L-value according to its nature. Usually this helps you in avoiding the need to write multiple time a function in order to have the version for the L and R-values. 
+
+## Make unique (C++14)
+
+```c++
+template<typename T, typename... Args>
+std::unique_ptr<T> make_unique(Args&&... args)
+{
+    return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
+}
+```
+
+Make unique is able to use the` =` operator with a unique ptr, allocating with `new` the memory for it.
+
+```c++
+head = std::make_unique<node>(v, nullptr);
+```
+
+## Friend
+
+`friend` is a keyword to let an external function access private data of a class. This is an easy way to overload the `>>` operator without for example have to build an internal public `print()` function that `return` the private data.
+
+You're usually automatically friend of the data of the same type of yourself in a class.
