@@ -56,7 +56,7 @@ class NonDangerousSnake : public Snake {
 
 struct Python : public NonDangerousSnake {};
 
-using Anaconda = DangerousSnake;
+using Anaconda = DangerousSnake; /* This introduce simply an alias */
 
 void print_animal(const Animal& a) noexcept {
   std::cout << "throught ref\n";

@@ -3,6 +3,7 @@
 struct Base {
   Base() { std::cout << "Base\n"; }
   ~Base() { std::cout << "~Base\n"; }
+  //virtual ~Base() { std::cout << "~Base\n"; } /*fix the memory leak */
 };
 
 struct Derived : public Base {
@@ -15,7 +16,7 @@ int main() {
 
   std::cout << "\n\npointers\n";
   Base* p = new Derived;
-  delete p;
+  delete p; /* doesn't delete the derived class */
 
   return 0;
 }

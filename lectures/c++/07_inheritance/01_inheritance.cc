@@ -29,7 +29,7 @@ struct Snake : public Animal {
       : Animal{a, w}, dangerous{b} {}
   explicit Snake(const bool b) noexcept : Animal{}, dangerous{b} {}
   void info() const noexcept {
-    Animal::info();
+    Animal::info(); /* wrong approach */
     std::cout << "dangerous:\t" << (dangerous ? "true" : "false") << std::endl;
   }
   void speak() const noexcept { std::cout << "ssss\n"; }
@@ -70,10 +70,10 @@ int main() {
 
     std::cout << std::endl;
 
-    Animal* p = new Snake{1, 2.3, false};
+    Animal* p = new Snake{1, 2.3, false}; /* run-time polymorphism */
     std::cout << "through pointer\n";
     p->info();
-    p->speak();
+    p->speak(); /* this doesn't work, it's not able to use the right function */
 
     delete p;
 
