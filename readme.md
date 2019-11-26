@@ -41,7 +41,7 @@ Syllabus:
   - open a terminal
   - `cd` to the folder `advanced-programming_2019-20`
   - `git fetch origin master`
-  - `git merge`
+  - `git merge origin/master`
 - if(conflict)
   - ask
 
