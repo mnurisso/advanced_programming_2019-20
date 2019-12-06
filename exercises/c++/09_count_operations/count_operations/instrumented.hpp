@@ -17,12 +17,14 @@ struct instrumented_base {
     equality,
     comparison
   };
-
+  /* variable that is shared among all the instances of the same
+  class */
   static constexpr std::size_t n_ops = 9;
-  static double counts[n_ops];
-  static const char* counter_names[n_ops];
+  static double counts[n_ops]; /* array */
+  static const char* counter_names[n_ops]; /* array of strings */
+  /* It's static because can be invoked without creating the object */
   static void initialize(std::size_t i) {
-    std::fill(counts, counts + n_ops, 0.0);
+    std::fill(counts, counts + n_ops, 0.0); /* Counter reset */
     counts[n] = i;
   }
   static void print_summary();
@@ -30,13 +32,18 @@ struct instrumented_base {
 };
 
 template <typename T>
-// T is Semiregualr or Regular or TotallyOrdered
+/* T is Semiregular or Regular or TotallyOrdered
+   
+   For the definition look where this label are in
+   the class definition
+*/
 struct instrumented : instrumented_base {
   using base = instrumented_base;
   typedef T value_type;
   T value;
   // Conversions from T and to T:
   instrumented(const T& x) : value(x) {}
+  /* You can recover a pure int from the instrumented one */
   explicit operator T() const { return value; }
 
   template <typename U>
@@ -73,6 +80,7 @@ struct instrumented : instrumented_base {
     ++counts[comparison];
     return x.value < y.value;
   }
+  /* You're always using the < semantic */
   friend bool operator>(const instrumented& x, const instrumented& y) {
     return y < x;
   }

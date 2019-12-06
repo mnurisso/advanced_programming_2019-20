@@ -22,7 +22,8 @@ void instrumented_base::print_summary() {
   const std::size_t n = counts[0];
   std::cout << std::setw(space) << double{counts[0]} << s;
   for (std::size_t i = 1; i < n_ops; ++i)
-    std::cout << std::setw(space) << double{counts[i]} << s;
+    /* Divided by n in order to have the average value, not the total */
+    std::cout << std::setw(space) << double{counts[i]/n} << s;
 
   std::cout << std::endl;
 }

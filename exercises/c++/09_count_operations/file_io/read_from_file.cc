@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 int main() {
-  std::ifstream f{"a_file.txt"};
+  std::ifstream f{"a_file.txt"}; /* Open a file to read */
   std::string word;
   f >> word;
   std::cout << "first read word: " << word << std::endl;
