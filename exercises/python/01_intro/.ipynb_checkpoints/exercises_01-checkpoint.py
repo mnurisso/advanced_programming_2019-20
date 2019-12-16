@@ -13,6 +13,7 @@ def histogram_letters(string_var):
     '''
     count how many times a letter is present in the string_var
     and returns a dict
+
     '''
     ret = None
     ########################
