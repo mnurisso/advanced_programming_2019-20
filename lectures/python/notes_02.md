@@ -70,7 +70,7 @@ a = hello
 a()
 ```
 
-The arguments name in functions can be passed as keywords so that you don't have to remember the order:
+The arguments name in functions can be passed as keywords so that you don't have to remember the order (they're stored in a dictionary, instead the positional one are stored in a tuple):
 
 ```python
 def abc(a,b,c):
