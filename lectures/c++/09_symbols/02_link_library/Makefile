@@ -2,6 +2,8 @@ EXE = ap
 GDIR=../01_greetings_library
 
 LDFLAGS = -lgreetings -L $(GDIR)
+#LDFLAGS = -lgreetings -L $(GDIR) -Wl,-rpath,$(GDIR)
+#it's used to engrave the LD_LIBRARY_PATH in the makefile
 CXX = c++
 CXXFLAGS = -I include -I $(GDIR)/include -std=c++11
 

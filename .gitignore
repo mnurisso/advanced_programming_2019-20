@@ -1,6 +1,8 @@
 # Ignore compiled files 
 *.x
 *.o
+*.so
+*.out
 
 # Ignore temporary files
 *.swp
