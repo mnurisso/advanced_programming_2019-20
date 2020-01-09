@@ -146,3 +146,50 @@ configure --prefix=/path/to/smart/place
 ```
 
 This is the standard way to specify a different folder for installation. You should find a coherent way to install everything in the same folder without root permission in order to fix better problems like typos.
+
+## Internal - External
+
+I have an example in which I have some `.cc` file without having an header file and I want to use it in the main file. I have to put by hand the signature of the functions that I want to use in the main and that are present in the other `.cc` files.
+
+If I want to use also a variable that is defined in a different compilation unit I have to recall it in the main file with the `extern` keyword in order to clarify to the linker that I'm speaking about the same variable defined in another file, an **external linkage**.
+I cannot simply define the variable in an header file because the compiler will complain about multiple definitions since including an header file means to copy-paste it in the file.
+
+With the `static` keyword I'm creating instead an **internal linkage**, so that every compilation unit has it's own copy of the variable and changing the value in one file doesn't change the value in the others. 
+
+## Static
+
+**In C** if you want to define a variable without having the possibility to change it in other files you have to use the `const static` keyword, instead **in C++** `const` means static. It's even better to use `constexpr` to ask for evaluation of the expression at compiling time.
+
+If you want to have a function generated only in your compilation unit without any possibility of external linkage you have to define the function like:
+
+```c++
+static void foo(){}
+```
+
+Inside a **function** the `static` keyword is used to executed the line only once, for example to define a counter variable inside a function that you want to debug.
+
+Inside a **class** defining a member with the `static` keyword means to define a variable outside the class that is shared between every realisation of the class. It has to be defined also outside of the class with its fully qualified name. Changing the value for one variable of the class type it will change the value for every other variable of the same class.
+
+```c++
+struct Foo{
+    static double s;
+}
+
+double Foo::s; //has to be defined outside the class
+```
+
+## One definition rule
+
+### Inline
+
+`inline` keyword is a suggestion to the compiler to not jump to that function when is used but to copy-paste the content of the function. It's only a suggestion so that do nothing on the compiler, it imply (only in C++) internal linkage, but not in C, so you have to use `static inline` if you want to be sure also in C. You should avoid it on big functions, with a couple of statements.
+
+### Class
+
+I cannot define a function member of a class outside the class in an header file. A class declaration can appear multiple time in an header file included without any problem. 
+
+### Template
+
+With template functions I don't need to put any keyword as `static` or `inline`, I can keep templates into the header without any problem.
+
+The same happen for the member functions of a templated class and defined outside the class in an header file. I don't need any specific keyword.
