@@ -2,6 +2,9 @@
 
 #include <iostream>
 
+/* This is how the normal c++
+ * code should appear */
+
 int main() {
   Foo f(10);
   f.print();

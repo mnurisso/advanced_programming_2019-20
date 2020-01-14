@@ -24,7 +24,7 @@ d_array = (c_double*size)()  # better do the allocation on the python side
 for i in range(size):
     d_array[i] = i
 
-array_sum = dso.array_sum
+array_sum = dso.array_sum # just to have a confortable name
 
 array_sum.argtypes = [POINTER(c_double), c_size_t] # note the use of POINTER
 array_sum.restype = c_double

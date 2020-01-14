@@ -3,6 +3,9 @@
 
 typedef void* Foo_c;
 
+/* This is how the whole C library is written
+ * in order to be able to use it from a C++
+ * without having problem of missing signatures */
 #ifdef __cplusplus
 extern "C" {
 #endif

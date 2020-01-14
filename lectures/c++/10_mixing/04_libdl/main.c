@@ -1,5 +1,9 @@
 #include <dlfcn.h>
 
+/* This can be used to enrich functions that you 
+ * want to debug without changing the actual 
+ * implementation */
+
 int main(int argc, char* argv[]) {
   void* handle; /* handle for dynamic object */
   void (*hi)(); /* function pointer for symbol */

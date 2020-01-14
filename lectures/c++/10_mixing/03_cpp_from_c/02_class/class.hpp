@@ -1,7 +1,12 @@
 #ifndef _CLASS_H_
 #define _CLASS_H_
 
-#include <iostream>
+/* #include <iostream>
+ Not needed */
+
+/* We're implementing a class
+ * so for sure it doesn't 
+ * exist in plain C */
 
 class Foo {
   int a;

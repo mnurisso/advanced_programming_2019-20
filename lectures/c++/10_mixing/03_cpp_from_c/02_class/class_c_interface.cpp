@@ -1,6 +1,10 @@
+/* This file has to require both the header files */
+
 #include "class_c_interface.h"
 #include "class.hpp"
 
+/* #ifndef not required because this part
+ * will be compiled by a C++ compiler */
 extern "C" {
 
 Foo_c create_foo(int b) {

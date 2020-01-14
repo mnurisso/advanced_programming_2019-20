@@ -9,7 +9,8 @@ int val4 = -15;
 extern int errno;
 
 static int add_abs(const int v1, const int v2) {
-  return abs(v1) + abs(v2);
+  // static flag is adding internal linkage
+	return abs(v1) + abs(v2);
 }
 
 int main() {
