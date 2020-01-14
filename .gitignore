@@ -6,3 +6,12 @@
 
 # Ignore temporary files
 *.swp
+
+# Ignore executables
+lectures/c++/10_mixing/02_c_from_cpp/exe
+lectures/c++/10_mixing/03_cpp_from_c/01_func/exe
+lectures/c++/10_mixing/03_cpp_from_c/02_class/c-main
+lectures/c++/10_mixing/03_cpp_from_c/02_class/cpp-main
+lectures/c++/10_mixing/04_libdl/main
+lectures/c++/10_mixing/06_fortran/c-exe
+lectures/c++/10_mixing/06_fortran/cpp-exe
