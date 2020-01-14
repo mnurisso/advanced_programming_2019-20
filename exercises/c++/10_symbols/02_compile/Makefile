@@ -1,6 +1,6 @@
 EXE = exe
 
-LFLAGS = -lblass
+LDFLAGS = -lblass
 CXX = c++
 CXXFLAGS = -I include -I -std=C++11
 
