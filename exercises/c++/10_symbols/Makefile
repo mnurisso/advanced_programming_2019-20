@@ -4,14 +4,14 @@ GDIR=01_library
 LDFLAGS = -lhello -L $(GDIR)
 
 CXX = c++
-CXXFLAGS = -I $(GDIR)/include -std=c++11
+CXXFLAGS = -I $(GDIR)/include -I -std=c++11
 
 all: $(EXE)
 
 %.o: %.cc
 	$(CXX) -c $< -o $@ $(CXXFLAGS)
 
-$(EXE): main.o
+$(EXE): main.o 01_library/source/hello.o
 	$(CXX) $^ -o $(EXE) $(LDFLAGS)
 
 clean:
