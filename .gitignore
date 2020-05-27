@@ -6,7 +6,9 @@
 
 # Ignore temporary files
 *.swp
-*.pdf
+
+# Duplicate pdf
+git/notes.pdf
 
 # Ignore executables
 lectures/c++/10_mixing/02_c_from_cpp/exe
