@@ -75,6 +75,14 @@ To commit in a single line:
 git commit -m "git comment"
 ```
 
+### Dismiss modification
+
+```bash
+git checkout -- filename
+```
+
+To dismiss modification that you don't want to add and commit.
+
 ### Commit log list
 
 ```bash

@@ -6,6 +6,7 @@
 
 # Ignore temporary files
 *.swp
+*.pdf
 
 # Ignore executables
 lectures/c++/10_mixing/02_c_from_cpp/exe
