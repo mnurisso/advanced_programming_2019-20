@@ -66,5 +66,20 @@ To install it trough Anaconda repository:
 conda install package_name
 #pylab
 conda install matplotlib
+conda install scipy
+```
+
+If you want to see the list of installed packages:
+
+```bash
+conda list
+```
+
+#### Install custom packages
+
+Move to the desired environment. Enter the local package folder, containing the **setup.py** file, then type:
+
+```bash
+pip install .
 ```
 
