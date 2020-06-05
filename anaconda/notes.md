@@ -10,6 +10,12 @@ anaconda-navigator
 
 ## Conda
 
+If during the anaconda installation conda has not been activated:
+
+```bash
+source $HOME/anaconda3/bin/activate
+```
+
 Update conda with:
 
 ```bash
