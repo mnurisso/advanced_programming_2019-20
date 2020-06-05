@@ -89,3 +89,4 @@ Move to the desired environment. Enter the local package folder, containing the 
 pip install .
 ```
 
+If some local package is modified you will simply need to reinstall the same package to override the previous one.
