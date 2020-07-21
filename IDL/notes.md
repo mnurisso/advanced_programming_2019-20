@@ -79,6 +79,8 @@ Load Particles file:
 PARTICLES_LOAD,10,/VTK
 ```
 
+Without any specification the .dbl file is loaded. It's the only one with the energy specifics.PLOT
+
 ### PRINT
 
 Allows to print single data value from a specific particles
