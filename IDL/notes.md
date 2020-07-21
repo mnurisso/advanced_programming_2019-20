@@ -61,6 +61,14 @@ Produces a 2D velocity field plot.
 VECFIELD,bx1,bx2,x1,x2,/OVERPLOT,col=120
 ```
 
+## Save file 
+
+The GET_FRAME routine allows to save a window's content to an image file.
+
+```
+GET_FRAME, name = "rho", /jpg
+```
+
 ## Particles
 
 ### PARTICLES_LOAD
@@ -79,6 +87,23 @@ Allows to print single data value from a specific particles
 PRINT,particles[4].vx1
 ```
 
-## PARTICLES_OPLOT
+### PARTICLES_OPLOT
 
 Overlay point particles on a preexisting 2D plot.
+
+```
+PLOAD, 10                    ; Load fluid data file (in .dbl format)
+DISPLAY,rho, x1=x1, x2=x2    ; Display density
+PARTICLES_LOAD, 10           ; Load particle data file (int .dbl format)
+PARTICLES_OPLOT, particles   ; Overlay particles on the plot generated
+                             ; by previous DISPLAY call.
+```
+
+## Tools
+
+### PCURL, PGRAD, PDIV
+
+```
+J = PCURL(Bx1,Bx2,Bx3)
+```
+
