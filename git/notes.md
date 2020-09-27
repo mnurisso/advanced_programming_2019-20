@@ -161,6 +161,12 @@ origin	https://github.com/asartori86/advanced_programming_2019-20.git (push)
 
 The default name for the address is **origin**, so that it can be used in commits as shortcut for the standard online address.
 
+If you have already a local repository and you want to create an online repository on GitHub, the repository address can be added with the command:
+
+```bash
+git remote add origin https://github.com/user/repo.git
+```
+
 ## Pull
 
 The actual pull command performs two different commands.
