@@ -79,7 +79,16 @@ Load Particles file:
 PARTICLES_LOAD,10,/VTK
 ```
 
-Without any specification the .dbl file is loaded. It's the only one with the energy specifics.PLOT
+Without any specification the .dbl file is loaded. It's the only one with the energy specifics.
+
+The fields available for the particles are:
+
+```
+Field_names:   id x1 x2 x3 vx1 vx2 vx3 tinj color density nmicro cmp_ratio
+               shkflag shk_gradp cr vL vR eng chi
+```
+
+
 
 ### PRINT
 
