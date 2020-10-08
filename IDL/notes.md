@@ -88,8 +88,6 @@ Field_names:   id x1 x2 x3 vx1 vx2 vx3 tinj color density nmicro cmp_ratio
                shkflag shk_gradp cr vL vR eng chi
 ```
 
-
-
 ### PRINT
 
 Allows to print single data value from a specific particles
