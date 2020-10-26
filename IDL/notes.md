@@ -168,3 +168,21 @@ PLOT,x,y,BACKGROUNG=255,COLOR=0
 OPLOT,j,k,COLOR=0
 ```
 
+### Color table
+
+We first setup:
+
+```idl
+DEVICE,TRUE_COLOR=24,DECOMPOSED=0
+```
+
+Then we can load a color table, for example rainbow+white
+
+```idl
+;Load color table rainbow+white
+LOADCT,39
+red = COLOR=230
+green = COLOR=150
+blue = COLOR=50
+```
+
