@@ -158,3 +158,13 @@ IDL uses the 24-bit color value map. To produce a black plot with a white backgr
 ```idl
 BACKGROUND=255, COLOR=0
 ```
+
+### OPLOT
+
+Plot can be show on the same figure by using the `OPLOT` function:
+
+```idl
+PLOT,x,y,BACKGROUNG=255,COLOR=0
+OPLOT,j,k,COLOR=0
+```
+
