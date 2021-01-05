@@ -7,6 +7,9 @@
 # Ignore temporary files
 *.swp
 
+# Ignore checkpoints from notebook
+.ipynb_checkpoints
+
 # Duplicate pdf
 git/notes.pdf
 
