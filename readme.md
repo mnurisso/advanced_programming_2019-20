@@ -44,6 +44,7 @@ Syllabus:
   - `cd` to the folder `advanced-programming_2019-20`
   - `git fetch origin master`
   - `git merge origin/master`
+  - or `git pull --rebase origin master`
 - if(conflict)
   - ask
 
