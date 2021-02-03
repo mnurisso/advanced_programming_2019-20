@@ -90,3 +90,11 @@ pip install .
 ```
 
 If some local package is modified you will simply need to reinstall the same package to override the previous one.
+
+### Delete an environment
+
+```bash
+conda env remove -n ENV_NAME
+conda env remove --name ENV_NAME
+```
+
